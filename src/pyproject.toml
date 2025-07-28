@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ViCapsid"
+version = "0.1.0"
+description = "Identifity Viral capsid sequences from metagenomic data"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "pandas",
+  "h5py",
+  "numpy",
+  "tfrecord",
+  # "torch",           # 按你的环境决定是否固定版本
+  # 其他依赖自行补充
+]
+
+[project.scripts]
+ViCapsid = "capsidpred.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
